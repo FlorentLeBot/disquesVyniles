@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox alignment="CENTER" prefHeight="600.0" prefWidth="800.0" spacing="20.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.soutenancevinyle.VinyleController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+    <children>
+
+        <AnchorPane prefHeight="600.0" prefWidth="800.0">
+            <children>
+
+                <!-- le menu -->
+                <MenuBar layoutY="6.0" prefHeight="25.0" prefWidth="760.0">
+                    <menus>
+                        <Menu mnemonicParsing="false" text="Fichier">
+                            <items>
+                                <MenuItem mnemonicParsing="false" text="Enregistrer dans un fichier" />
+                                <MenuItem mnemonicParsing="false" text="Envoi Couriel" />
+                                <MenuItem mnemonicParsing="false" text="Enregistrer dans la base de données" />
+                                <MenuItem fx:id="close" mnemonicParsing="false" onAction="#onCloseClick" text="Quitter" />
+                            </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Paramètres">
+                            <items>
+                                <MenuItem mnemonicParsing="false" text="Base de données" />
+                            </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Aide">
+                            <items>
+                                <MenuItem fx:id="help" mnemonicParsing="false" onAction="#onPopupHelpClick" text="Mode d'emploi" />
+                            </items>
+                        </Menu>
+                    </menus>
+                </MenuBar>
+
+                <!-- titre: Recherche vinyle -->
+                <Text layoutX="14.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recherche Vinyle" underline="true">
+                    <font>
+                        <Font size="24.0" />
+                    </font>
+                </Text>
+
+                <!-- rechercher par titre -->
+                <Label layoutX="57.0" layoutY="87.0" text="Titre" />
+                <TextField fx:id="title" layoutX="119.0" layoutY="83.0">
+                    <effect>
+                        <ColorAdjust />
+                    </effect>
+                </TextField>
+
+                <!-- rechercher par date -->
+                <Label layoutX="57.0" layoutY="183.0" text="Date" />
+                <DatePicker fx:id="date" layoutX="120.0" layoutY="179.0" prefHeight="26.0" prefWidth="138.0" />
+
+                <!-- rechercher par prix -->
+                <Label layoutX="60.0" layoutY="225.0" text="Prix" />
+                <TextField fx:id="minprice" layoutX="132.0" layoutY="221.0" prefHeight="26.0" prefWidth="36.0">
+                    <effect>
+                        <ColorAdjust />
+                    </effect>
+                </TextField>
+                <Text layoutX="180.0" layoutY="239.0" strokeType="OUTSIDE" strokeWidth="0.0" text="€ à" />
+
+                <!-- le choix du prix -->
+                <TextField fx:id="maxprice" layoutX="205.0" layoutY="221.0" prefHeight="26.0" prefWidth="36.0" text="a">
+                    <effect>
+                        <ColorAdjust />
+                    </effect>
+                </TextField>
+                <Text layoutX="255.0" layoutY="239.0" strokeType="OUTSIDE" strokeWidth="0.0" text="€" />
+
+                <!-- choix du genre -->
+                <Label layoutX="53.0" layoutY="131.0" text="Genre" />
+                <ComboBox fx:id="combobox" layoutX="121.0" layoutY="130.0" prefHeight="21.0" prefWidth="145.0" promptText="Selectionnez un genre">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:id="select" fx:value="Selectionner un genre" />
+                            <String fx:id="rock" fx:value="Rock" />
+                            <String fx:id="blues" fx:value="Blues" />
+                            <String fx:id="jazz" fx:value="Jazz" />
+                            <String fx:id="reggae" fx:value="Raggae" />
+                            <String fx:id="funk" fx:value="Funk" />
+                            <String fx:id="electro" fx:value="Electro" />
+                            <String fx:id="dubstep" fx:value="DubStep" />
+                            <String fx:id="saoul" fx:value="Saoul" />
+                        </FXCollections>
+                    </items>
+                    <value>
+                        <String fx:id="slt" fx:value="Selectionner un genre" />
+                    </value>
+                </ComboBox>
+
+                <!-- les checkboxs pour le choix du site -->
+                <CheckBox fx:id="discogs" layoutX="582.0" layoutY="64.0" mnemonicParsing="false" text="Discogs.com" textAlignment="JUSTIFY" />
+                <CheckBox fx:id="fnac" layoutX="582.0" layoutY="95.0" mnemonicParsing="false" text="Fnac.com" textAlignment="JUSTIFY" />
+                <CheckBox fx:id="vinylcorner" layoutX="582.0" layoutY="129.0" mnemonicParsing="false" text="Vinylcorner.f" textAlignment="JUSTIFY" />
+                <CheckBox fx:id="leboncoin" layoutX="583.0" layoutY="160.0" mnemonicParsing="false" text="Leboncoin.fr" textAlignment="JUSTIFY" />
+                <CheckBox fx:id="mesvinyles" layoutX="582.0" layoutY="194.0" mnemonicParsing="false" text="Mesvinyles.fr" textAlignment="JUSTIFY" />
+                <CheckBox fx:id="culturefactory" layoutX="583.0" layoutY="223.0" mnemonicParsing="false" text="Culturefactory.fr" textAlignment="JUSTIFY" />
+
+                <!-- les boutons rechercher et effacer -->
+                <Button fx:id="search" layoutX="92.0" layoutY="276.0" mnemonicParsing="false" onAction="#afficher" text="Rechercher" />
+                <Button fx:id="clear" layoutX="205.0" layoutY="276.0" mnemonicParsing="false" onAction="#onClearClick" text="Effacer" />
+
+            </children>
+        </AnchorPane>
+
+        <!-- resultat de la recherche -->
+        <ScrollPane prefHeight="352.0" prefWidth="760.0">
+            <content>
+                <TextArea fx:id="result" prefHeight="200.0" prefWidth="760.0" />
+            </content>
+        </ScrollPane>
+
+    </children>
+</VBox>
