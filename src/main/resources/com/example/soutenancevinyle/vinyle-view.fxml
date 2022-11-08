@@ -34,15 +34,15 @@
                     <menus>
                         <Menu mnemonicParsing="false" text="Fichier">
                             <items>
-                                <MenuItem mnemonicParsing="false" text="Enregistrer dans un fichier" />
-                                <MenuItem mnemonicParsing="false" text="Envoi Couriel" />
+                                <MenuItem mnemonicParsing="false" onAction="#saveFile" text="Enregistrer dans un fichier" />
+                                <MenuItem fx:id="sendMail" onAction="#onPopupSendMailClick" mnemonicParsing="false" text="Envoi Couriel" />
                                 <MenuItem mnemonicParsing="false" text="Enregistrer dans la base de données" />
                                 <MenuItem fx:id="close" mnemonicParsing="false" onAction="#onCloseClick" text="Quitter" />
                             </items>
                         </Menu>
-                        <Menu mnemonicParsing="false" text="Paramètres">
+                        <Menu fx:id="para" mnemonicParsing="false" text="Paramètres">
                             <items>
-                                <MenuItem mnemonicParsing="false" text="Base de données" />
+                                <MenuItem mnemonicParsing="false" onAction="#paraDB" text="Base de données" />
                             </items>
                         </Menu>
                         <Menu mnemonicParsing="false" text="Aide">
@@ -82,7 +82,7 @@
                 <Text layoutX="180.0" layoutY="239.0" strokeType="OUTSIDE" strokeWidth="0.0" text="€ à" />
 
                 <!-- le choix du prix -->
-                <TextField fx:id="maxprice" layoutX="205.0" layoutY="221.0" prefHeight="26.0" prefWidth="36.0" text="a">
+                <TextField fx:id="maxprice" layoutX="205.0" layoutY="221.0" prefHeight="26.0" prefWidth="36.0">
                     <effect>
                         <ColorAdjust />
                     </effect>
@@ -98,7 +98,7 @@
                             <String fx:id="rock" fx:value="Rock" />
                             <String fx:id="blues" fx:value="Blues" />
                             <String fx:id="jazz" fx:value="Jazz" />
-                            <String fx:id="reggae" fx:value="Raggae" />
+                            <String fx:id="reggae" fx:value="Reggae" />
                             <String fx:id="funk" fx:value="Funk" />
                             <String fx:id="electro" fx:value="Electro" />
                             <String fx:id="dubstep" fx:value="DubStep" />
@@ -119,7 +119,7 @@
                 <CheckBox fx:id="culturefactory" layoutX="583.0" layoutY="223.0" mnemonicParsing="false" text="Culturefactory.fr" textAlignment="JUSTIFY" />
 
                 <!-- les boutons rechercher et effacer -->
-                <Button fx:id="search" layoutX="92.0" layoutY="276.0" mnemonicParsing="false" onAction="#afficher" text="Rechercher" />
+                <Button fx:id="search" layoutX="92.0" layoutY="276.0" mnemonicParsing="false" onAction="#displaySearch" text="Rechercher" />
                 <Button fx:id="clear" layoutX="205.0" layoutY="276.0" mnemonicParsing="false" onAction="#onClearClick" text="Effacer" />
 
             </children>
